@@ -1,4 +1,6 @@
 gsap.set(`[data-effect="fade"]`, { opacity: 0 });
+gsap.set(`[data-effect="x-move"]`, { xPercent: 100 });
+gsap.set(`[data-effect="y-move"]`, { yPercent: 100 });
 
 const artText = gsap.timeline({});
 
@@ -60,12 +62,17 @@ const groupSlide = gsap
   .to(".sc-intro .wander-img", { xPercent: -100 }, "bg")
   .to(".sc-intro .img-area img", { scale: 0.84 }, "bg")
   .to(".sc-intro .text-area-bg", { width: "100%" })
-  .to(".sc-intro .content-wrap", {
-    xPercent: -100,
-    x: function () {
-      return window.innerWidth;
+  .to(
+    ".sc-intro .content-wrap",
+    {
+      xPercent: -100,
+      x: function () {
+        return window.innerWidth;
+      },
     },
-  });
+    "text"
+  )
+  .to(`.sc-intro .area2 [data-effect="x-move"]`, { xPercent: 0 }, "text");
 
 const groupGallery = gsap.timeline({
   scrollTrigger: {
@@ -82,5 +89,54 @@ const groupGallery = gsap.timeline({
       gsap.set(`[data-effect="fade"]`, { opacity: 0 });
       $(".sc-intro .area2 .gallery-area").removeClass("remove");
     },
+    // onUpdate: function (self) {
+    //   const direction = self.direction;
+    //   if (direction == 1) {
+    //     gsap.to(".group-gallery .img-item img", { y: +50 });
+    //   } else {
+    //     gsap.to(".group-gallery .img-item img", { y: -50 });
+    //   }
+    // },
   },
 });
+
+$(`.sc-order .group-call [data-effect="y-move"]`).each(function (index) {
+  console.log($(this));
+  const call = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".sc-order",
+        start: "0% 80%",
+        end: "50% 100%",
+        scrub: 0,
+        // markers: true,
+      },
+    })
+    .to($(this), { yPercent: 0, delay: index * 0.1 });
+});
+
+$(`.sc-order .group-order [data-effect="y-move"]`).each(function (index) {
+  const order = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".sc-order",
+        start: "50% 80%",
+        end: "100% 100%",
+        scrub: 0,
+        // markers: true,
+      },
+    })
+    .to($(this), { yPercent: 0, delay: index * 0.1 });
+});
+
+const interior = gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".group-interior",
+      start: "0% 0%",
+      end: "100% 100%",
+      scrub: 0,
+      markers: true,
+    },
+  })
+  .to(".sc-interior .interior-list", { xPercent: -100 });
