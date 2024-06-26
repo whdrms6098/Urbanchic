@@ -1,0 +1,75 @@
+@import url("./reset.css");
+@import url("./common.css");
+@import url("./font.css");
+
+#header {
+    width: 100%;
+    height: 65px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+#header .logo h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    line-height: 1.55;
+    color: var(--color-black);
+    display: flex;
+}
+
+#header .logo h1 span {
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#header .menu-btn-wrap {
+    width: 110px;
+    height: 45px;
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+#header .menu-btn {
+    width: 100%;
+    height: 100%;
+    transition: transform .55s cubic-bezier(.645, .045, .355, 1), opacity .35s linear .2s;
+    will-change: transform, opacity;
+    position: relative;
+}
+
+#header .menu-btn span {
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .55s cubic-bezier(.645, .045, .355, 1), opacity .35s linear .2s;
+}
+
+#header .menu-btn span.hover-text2 {
+    opacity: 0;
+    transform: translateY(50%) rotateX(-90deg) scaleX(1) translate3d(0, 10px, 0);
+}
+
+#header .menu-btn:hover span.hover-text1 {
+    opacity: 0;
+    transform: translateY(-50%) rotateX(60deg) scaleX(0.9) translate3d(0, 0px, 0);
+}
+
+#header .menu-btn:hover span.hover-text2 {
+    opacity: 1;
+    transform: translateY(0%) rotateX(0deg) scaleX(1) translate3d(0, 0px, 0);
+}
