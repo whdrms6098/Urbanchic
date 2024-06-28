@@ -46,6 +46,12 @@
     font-weight: 400;
 }
 
+.font-wrap {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
 .point-fw300 {
     font-weight: 300;
 }
@@ -91,4 +97,16 @@
 .btn-trans span {
     position: relative;
     z-index: 1;
+}
+
+.btn-trans.black {
+    border: 1px solid var(--color-black);
+}
+
+.btn-trans.black::after {
+    background-color: var(--color-black);
+}
+
+.btn-trans.black:hover {
+    color: var(--color-white);
 }

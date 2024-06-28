@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Height Reduction</title>
+    <style>
+        body {
+            height: 200vh;
+            /* 페이지 높이를 늘려 스크롤 공간 확보 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            width: 100px;
+            height: 300px;
+            background-color: red;
+            /* 페이지 가운데 정렬 */
+            transform-origin: bottom;
+            /* 변환의 기준점을 아래로 설정 */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".box", {
+            height: "100px", // 최종 높이
+            scrollTrigger: {
+                trigger: ".box",
+                start: "top 50%", // 스크롤 트리거 시작 위치
+                end: "bottom 25%", // 스크롤 트리거 끝 위치
+                scrub: true, // 스크롤에 따른 애니메이션 진행
+                markers: true, // 스크롤 트리거 위치를 시각적으로 표시 (디버그용)
+                // pin: true,
+            }
+        });
+    </script>
+</body>
+
+</html>
