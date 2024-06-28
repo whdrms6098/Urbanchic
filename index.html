@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design URBAN—ART</title>
 
+    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
+
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/main.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <script src="./assets/js/main.js" defer></script>
 </head>
 
@@ -26,14 +29,37 @@
 
         <div class="menu-btn-wrap">
             <button class="menu-btn">
-                <span class="hover-text1">MENU</span>
-                <span class="hover-text2">MENU</span>
+                <span class="hover-text1 open">MENU</span>
+                <span class="hover-text2 open">MENU</span>
+
+                <span class="hover-text1 close">CLOSE</span>
+                <span class="hover-text2 close">CLOSE</span>
             </button>
+
+            <nav class="gnb">
+                <ul class="gnb-list">
+                    <li class="gnb-item">Main</li>
+                    <li class="gnb-item">About the details</li>
+                    <li class="gnb-item">Projects</li>
+                    <li class="gnb-item">Testimonials</li>
+                    <li class="gnb-item">Contact</li>
+                </ul>
+
+                <ul class="sns-link-list font-small point-gray">
+                    <li>
+                        <a href="#">INSTAGRAM</a>
+                    </li>
+                    <li>
+                        <a href="#">FACEBOOK</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+
     </header>
 
     <main id="container">
-        <section class="sc-intro">
+        <section class="sc-intro" id="sc1">
             <h2 class="blind">URBAN ART</h2>
             <div class="group-art">
                 <div class="sub-title-area">
@@ -220,7 +246,7 @@
             </div>
         </section>
 
-        <section class="sc-order">
+        <section class="sc-order" id="sc2">
             <h2 class="blind">연락 및 주문</h2>
             <div class="inner">
                 <div class="group-call">
@@ -276,7 +302,7 @@
             </div>
         </section>
 
-        <section class="sc-interior">
+        <section class="sc-interior" id="sc3">
             <h2>인테리어 소개</h2>
             <div class="group-mind">
                 <div class="sticky">
@@ -367,7 +393,7 @@
                 <div class="sticky">
                     <div class="interior-list">
                         <div class="interior-box">
-                            <div class="interior-item">
+                            <div class="interior-item" data-room="bed-room">
                                 <img src="./assets/images/bed-room.jpg" alt="BedRoom">
 
                                 <div class="item-desc">
@@ -388,28 +414,27 @@
                         </div>
 
                         <div class="interior-box">
-                            <div class="interior-item">
+                            <div class="interior-item" data-room="scand-room">
                                 <img src="./assets/images/cuisine.jpg" alt="CUISINE">
 
                                 <div class="item-desc">
                                     <p class="font-small">
-                                        There is a sense of calm and simplicity of perception in the space in the air.
-                                        Each
-                                        element serves its own function, nothing superfluous
+                                        BRIGHT AND LIGHT SHADES CREATE AN ATMOSPHERE OF SIMPLICITY, WHILE NATURE
+                                        MATERIALS GIVE THE HOME A NATURAL AESTHETIC. EVERY DETAIL MAKES LIFE EASIER
                                     </p>
                                 </div>
 
                                 <div class="item-title font-medium">
                                     <h3>
-                                        MINIMALSIM<br>
-                                        BEDROOM
+                                        SCANDINAVIAN<br>
+                                        CUISINE
                                     </h3>
                                 </div>
                             </div>
                         </div>
 
                         <div class="interior-box">
-                            <div class="interior-item">
+                            <div class="interior-item" data-room="eco-room">
                                 <img src="./assets/images/living-room.jpg" alt="LivingRoom">
 
                                 <div class="item-desc">
@@ -432,7 +457,7 @@
             </div>
         </section>
 
-        <section class="sc-member">
+        <section class="sc-member" id="sc4">
             <h2 class="blind">멤버 소개</h2>
             <div class="group-header">
                 <div class="title-area">
@@ -580,14 +605,13 @@
                     <div class="content-wrap">
                         <div class="area1">
                             <div class="video-area">
-                                <video src="./assets/video/interior-bg.mp4" autoplay="true" muted="true"
-                                    loop="true"></video>
+                                <video src="./assets/video/interior-bg.mp4" autoplay muted loop></video>
                             </div>
 
                             <ul class="list-area" data-effect="x-move">
                                 <li class="list-item">
                                     <div class="item-img">
-                                        <img src="./assets/images/order-list1.jpg">
+                                        <img src="./assets/images/order-list1.jpg" alt>
                                     </div>
                                     <div class="item-title">
                                         <p class="font-small point-fw300">
@@ -598,7 +622,7 @@
 
                                 <li class="list-item">
                                     <div class="item-img">
-                                        <img src="./assets/images/order-list2.jpg">
+                                        <img src="./assets/images/order-list2.jpg" alt>
                                     </div>
                                     <div class="item-title">
                                         <p class="font-small point-fw300">
@@ -609,7 +633,7 @@
 
                                 <li class="list-item">
                                     <div class="item-img">
-                                        <img src="./assets/images/order-list3.jpg">
+                                        <img src="./assets/images/order-list3.jpg" alt>
                                     </div>
                                     <div class="item-title">
                                         <p class="font-small point-fw300">
@@ -623,7 +647,7 @@
                         <div class="order-area">
                             <div class="title-wrap">
                                 <div class="title-wrap-img">
-                                    <img src="./assets/images/order-interior3.jpg">
+                                    <img src="./assets/images/order-interior3.jpg" alt>
                                 </div>
 
                                 <h3 class="font-large">
@@ -632,7 +656,7 @@
                                 </h3>
 
                                 <div class="title-wrap-img">
-                                    <img src="./assets/images/order-interior4.jpg">
+                                    <img src="./assets/images/order-interior4.jpg" alt>
                                 </div>
                             </div>
 
@@ -694,7 +718,7 @@
             </div>
         </section>
 
-        <section class="sc-visual">
+        <section class="sc-visual" id="sc5">
             <h2>URBANCHIC</h2>
 
             <div class="img-box">
@@ -703,6 +727,254 @@
 
             <div class="text-bg" data-effect="y-move"></div>
         </section>
+
+        <aside class="interior-side">
+            <div class="group-side">
+
+                <div class="side-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="275" height="275" viewBox="0 0 275 275" fill="none">
+                        <circle cx="137.5" cy="137.5" r="137.5" fill="white"></circle>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M161.964 103L137.02 127.939L112.794 103.712L102.762 113.744L126.991 137.968L102 162.961L112.035 173L137.018 148.009L161.248 172.237L171.275 162.205L147.049 137.968L172 113.028L161.964 103Z"
+                            fill="black"></path>
+                    </svg>
+                    <span class="blind">close</span>
+                </div>
+                <div class="wrapper" data-room="bed-room">
+                    <div class="info-area">
+                        <div class="info-img">
+                            <img src="./assets/images/bed-1.jpg" alt>
+                        </div>
+
+                        <ul class="info-desc">
+                            <li>
+                                <span class="title">STYLE</span>
+                                <span class="desc">MINIMALSIM</span>
+                            </li>
+                            <li>
+                                <span class="title">YEAR</span>
+                                <span class="desc">2024</span>
+                            </li>
+                            <li>
+                                <span class="title">AREA</span>
+                                <span class="desc">150 M²</span>
+                            </li>
+                            <li>
+                                <span class="title">NUMBER OF ROOMS</span>
+                                <span class="desc">4</span>
+                            </li>
+                            <li>
+                                <span class="title">DESIGN</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">REPAIR</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">TOOK A WHILE</span>
+                                <span class="desc">6 MONTHS</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="img-area">
+                        <strong class="font-medium">ARCHITECTURAL<br> ELEGANCE</strong>
+
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/bed-2.jpg" alt="KITCHEN">
+                                <div class="img-desc">
+                                    <span class="title">KITCHEN</span>
+                                    <span class="desc">18M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/bed-3.jpg" alt="CHILDREN'S ROOM">
+                                <div class="img-desc">
+                                    <span class="title">CHILDREN'S ROOM</span>
+                                    <span class="desc">20M²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/bed-4.jpg" alt="BEDROOM">
+                                <div class="img-desc">
+                                    <span class="title">BEDROOM</span>
+                                    <span class="desc">24M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/bed-5.jpg" alt="BATHROOM">
+                                <div class="img-desc">
+                                    <span class="title">BATHROOM</span>
+                                    <span class="desc">10M²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper" data-room="scand-room">
+                    <div class="info-area">
+                        <div class="info-img">
+                            <img src="./assets/images/scand-1.jpg" alt>
+                        </div>
+
+                        <ul class="info-desc">
+                            <li>
+                                <span class="title">STYLE</span>
+                                <span class="desc">SCANDINAVIAN</span>
+                            </li>
+                            <li>
+                                <span class="title">YEAR</span>
+                                <span class="desc">2024</span>
+                            </li>
+                            <li>
+                                <span class="title">AREA</span>
+                                <span class="desc">80 M²</span>
+                            </li>
+                            <li>
+                                <span class="title">NUMBER OF ROOMS</span>
+                                <span class="desc">3</span>
+                            </li>
+                            <li>
+                                <span class="title">DESIGN</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">REPAIR</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">TOOK A WHILE</span>
+                                <span class="desc">5 MONTHS</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="img-area">
+                        <strong class="font-medium">ARCHITECTURAL<br> ELEGANCE</strong>
+
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/scand-2.jpg" alt="KITCHEN">
+                                <div class="img-desc">
+                                    <span class="title">KITCHEN</span>
+                                    <span class="desc">16M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/scand-3.jpg" alt="BEDROOM">
+                                <div class="img-desc">
+                                    <span class="title">BEDROOM</span>
+                                    <span class="desc">22M²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/scand-4.jpg" alt="BATHROOM">
+                                <div class="img-desc">
+                                    <span class="title">BATHROOM</span>
+                                    <span class="desc">12M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/scand-5.jpg" alt="CHILDREN'S ROOM">
+                                <div class="img-desc">
+                                    <span class="title">CHILDREN'S ROOM</span>
+                                    <span class="desc">18M²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper" data-room="eco-room">
+                    <div class="info-area">
+                        <div class="info-img">
+                            <img src="./assets/images/eco-1.jpg" alt>
+                        </div>
+
+                        <ul class="info-desc">
+                            <li>
+                                <span class="title">STYLE</span>
+                                <span class="desc">ECO</span>
+                            </li>
+                            <li>
+                                <span class="title">YEAR</span>
+                                <span class="desc">2024</span>
+                            </li>
+                            <li>
+                                <span class="title">AREA</span>
+                                <span class="desc">120 M²</span>
+                            </li>
+                            <li>
+                                <span class="title">NUMBER OF ROOMS</span>
+                                <span class="desc">4</span>
+                            </li>
+                            <li>
+                                <span class="title">DESIGN</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">REPAIR</span>
+                                <span class="desc">YES</span>
+                            </li>
+                            <li>
+                                <span class="title">TOOK A WHILE</span>
+                                <span class="desc">10 MONTHS</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="img-area">
+                        <strong class="font-medium">ARCHITECTURAL<br> ELEGANCE</strong>
+
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/eco-2.jpg" alt="KITCHEN">
+                                <div class="img-desc">
+                                    <span class="title">KITCHEN</span>
+                                    <span class="desc">16M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/eco-3.jpg" alt="BATHROOM">
+                                <div class="img-desc">
+                                    <span class="title">BATHROOM</span>
+                                    <span class="desc">18M²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-wrap">
+                            <div class="img-item">
+                                <img src="./assets/images/eco-4.jpg" alt="CHILDREN'S ROOM">
+                                <div class="img-desc">
+                                    <span class="title">CHILDREN'S ROOM</span>
+                                    <span class="desc">20M²</span>
+                                </div>
+                            </div>
+
+                            <div class="img-item">
+                                <img src="./assets/images/eco-5.jpg" alt="LIVING ROOM">
+                                <div class="img-desc">
+                                    <span class="title">LIVING ROOM</span>
+                                    <span class="desc">28M²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </main>
 
     <footer id="footer">

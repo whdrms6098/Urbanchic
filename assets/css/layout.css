@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
+    left: 0;
     top: 0;
     z-index: 10;
 }
@@ -31,16 +32,18 @@
 #header .menu-btn-wrap {
     width: 110px;
     height: 45px;
-    background-color: var(--color-black);
-    overflow: hidden;
+    position: relative;
 }
 
 #header .menu-btn {
     width: 100%;
     height: 100%;
+    background-color: var(--color-black);
     transition: transform .55s cubic-bezier(.645, .045, .355, 1), opacity .35s linear .2s;
     will-change: transform, opacity;
     position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
 #header .menu-btn span {
@@ -59,19 +62,137 @@
     transition: transform .55s cubic-bezier(.645, .045, .355, 1), opacity .35s linear .2s;
 }
 
+#header .menu-btn span.close {
+    transform: translateY(100%);
+    display: none;
+}
+
+#header .menu-btn .hover-text1.close.active {
+    transform: translateY(0);
+    display: flex;
+}
+
+#header .menu-btn .hover-text2.close.active {
+    transform: translateY(50%) rotateX(-90deg) scaleX(1) translate3d(0, 10px, 0);
+    display: flex;
+}
+
+#header .menu-btn span.open.remove {
+    display: none;
+}
+
 #header .menu-btn span.hover-text2 {
     opacity: 0;
     transform: translateY(50%) rotateX(-90deg) scaleX(1) translate3d(0, 10px, 0);
 }
 
-#header .menu-btn:hover span.hover-text1 {
+#header .menu-btn-wrap .menu-btn:hover span.hover-text1 {
     opacity: 0;
     transform: translateY(-50%) rotateX(60deg) scaleX(0.9) translate3d(0, 0px, 0);
 }
 
-#header .menu-btn:hover span.hover-text2 {
+#header .menu-btn-wrap .menu-btn:hover span.hover-text2 {
     opacity: 1;
     transform: translateY(0%) rotateX(0deg) scaleX(1) translate3d(0, 0px, 0);
+}
+
+#header .gnb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 45px;
+    background-color: var(--color-black);
+    transition: width .65s cubic-bezier(.215, .61, .355, 1), height .4s cubic-bezier(.215, .61, .355, 1), right .65s cubic-bezier(.215, .61, .355, 1), top .65s cubic-bezier(.215, .61, .355, 1);
+    display: flex;
+    align-items: center;
+}
+
+#header .gnb.active {
+    width: 350px;
+    height: 445px;
+}
+
+#header .gnb .gnb-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    margin: 0 40px;
+}
+
+#header .gnb .gnb-list .gnb-item {
+    color: var(--color-white);
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: padding .65s cubic-bezier(.215, .61, .355, 1);
+    white-space: nowrap;
+}
+
+#header .gnb .gnb-list .gnb-item:hover {
+    padding-left: 50px;
+}
+
+#header .gnb .gnb-list .gnb-item::before {
+    content: '';
+    width: 50px;
+    height: 100%;
+    background: url("../images/arrow-w.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform .65s cubic-bezier(.215, .61, .355, 1);
+}
+
+#header .gnb .sns-link-list {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+#header .gnb .sns-link-list li {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+#header .gnb .sns-link-list li::before {
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, .4);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transition: width .7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#header .gnb .sns-link-list li:hover::before {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+#header .gnb .gnb-list,
+#header .gnb .sns-link-list {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s .2s linear;
+}
+
+#header .gnb.active .gnb-list,
+#header .gnb.active .sns-link-list {
+    opacity: 1;
+    visibility: visible;
 }
 
 #footer {
@@ -173,6 +294,32 @@
 }
 
 @media (max-width:580px) {
+    #header .gnb.active {
+        width: 150px;
+    }
+
+    #header .gnb .gnb-list {
+        margin: 0 10px;
+    }
+
+    #header .gnb .gnb-list .gnb-item {
+        font-size: 16px;
+    }
+
+    #header .gnb .gnb-list .gnb-item::before {
+        width: 25px;
+        height: 25px;
+    }
+
+    #header .gnb .gnb-list .gnb-item:hover {
+        padding-left: 15px;
+    }
+
+    #header .gnb .sns-link-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     #footer {
         padding: 0;
     }

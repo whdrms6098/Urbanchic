@@ -103,7 +103,6 @@ const groupGallery = gsap.timeline({
 });
 
 $(`.sc-order .group-call [data-effect="y-move"]`).each(function (index) {
-  console.log($(this));
   const call = gsap
     .timeline({
       scrollTrigger: {
@@ -277,4 +276,74 @@ $(".sc-visual, #footer").mousemove(function (e) {
   const y = (10 * e.clientY) / $(".sc-visual").height();
 
   $(".sc-visual .img-box").css("transform", `translate(${x}px, -${y}px)`);
+});
+
+$(".menu-btn").click(function () {
+  $("#header .gnb").toggleClass("active");
+  $(this).find("span.close").toggleClass("active");
+  $(this).find("span.open").toggleClass("remove");
+});
+
+$("#header .gnb-item").each(function (index) {
+  const targetIndex = index;
+
+  $(this).click(function () {
+    gsap.to(window, {
+      duration: 0.7,
+      scrollTo: { y: `#sc${targetIndex + 1}` },
+    });
+
+    $("#header .gnb").removeClass("active");
+    $("#header .menu-btn span.close").removeClass("active");
+    $("#header .menu-btn span.open").removeClass("remove");
+  });
+});
+
+$(document).click(function (e) {
+  if (!$("#header .gnb, .menu-btn").has(e.target).length) {
+    $("#header .gnb").removeClass("active");
+    $("#header .menu-btn span.close").removeClass("active");
+    $("#header .menu-btn span.open").removeClass("remove");
+  }
+
+  if (
+    !$(
+      ".interior-side .group-side, .sc-interior .group-interior .interior-box .interior-item"
+    ).has(e.target).length
+  ) {
+    $(".interior-side .group-side").removeClass("active");
+    setTimeout(() => {
+      $(".interior-side").removeClass("active");
+      $("body").removeClass("active");
+      $(`.interior-side [data-room*="room"]`).css("display", "none");
+    }, 1200);
+  }
+});
+
+$(".sc-interior .group-interior .interior-item").click(function () {
+  const room = $(this).data("room");
+
+  if (room == "bed-room") {
+    $(`[data-room="bed-room"]`).css("display", "block");
+  } else if (room == "scand-room") {
+    $(`[data-room="scand-room"]`).css("display", "block");
+  } else {
+    $(`[data-room="eco-room"]`).css("display", "block");
+  }
+
+  $(".interior-side").toggleClass("active");
+  $("body").toggleClass("active");
+
+  setTimeout(() => {
+    $(".interior-side .group-side").toggleClass("active");
+  }, 300);
+});
+
+$(".interior-side .side-close").click(function () {
+  $(".interior-side .group-side").removeClass("active");
+  setTimeout(() => {
+    $(".interior-side").removeClass("active");
+    $("body").removeClass("active");
+    $(`.interior-side [data-room*="room"]`).css("display", "none");
+  }, 1200);
 });
