@@ -104,8 +104,8 @@ mm.add("(min-width: 1000px)", () => {
       start: "left 100%",
       end: "left 0%",
       scrub: 0,
-      ease:"none",
-      markers:true,
+      ease: "none",
+      // markers:true,
     },
   });
 
@@ -279,8 +279,8 @@ const textBg = gsap
 $(".sc-visual, #footer").mousemove(function (e) {
   const x = (20 * e.clientX) / $(".sc-visual").width();
   const y = (10 * e.clientY) / $(".sc-visual").height();
-  
-  gsap.to(".sc-visaul .img-box",{x:x,y:y})
+
+  gsap.to(".sc-visual .img-box", { x: x, y: y })
 });
 
 $(".menu-btn").click(function () {
