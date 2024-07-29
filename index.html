@@ -12,28 +12,30 @@
     <link rel="stylesheet" href="./assets/css/main.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="./assets/js/split.min.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
 </head>
 
 <body>
     <header id="header">
         <div class="logo">
-            <h1>
+            <a href="#">
                 urbanchic/
                 <span>design</span>
-            </h1>
+            </a>
         </div>
 
         <div class="menu-btn-wrap">
-            <button class="menu-btn">
-                <span class="hover-text1 open">MENU</span>
-                <span class="hover-text2 open">MENU</span>
+            <button class="menu-btn" aria-label="메뉴열기">
+                <span class="hover-text1 open" aria-hidden="true">MENU</span>
+                <span class="hover-text2 open" aria-hidden="false">MENU</span>
 
-                <span class="hover-text1 close">CLOSE</span>
-                <span class="hover-text2 close">CLOSE</span>
+                <span class="hover-text1 close" aria-hidden="false">CLOSE</span>
+                <span class="hover-text2 close" aria-hidden="false">CLOSE</span>
             </button>
 
             <nav class="gnb">
@@ -60,31 +62,13 @@
 
     <main id="container">
         <section class="sc-intro" id="sc1">
-            <h2 class="blind">URBAN ART</h2>
             <div class="group-art">
                 <div class="sub-title-area">
-                    <span>D</span>
-                    <span>E</span>
-                    <span>S</span>
-                    <span>I</span>
-                    <span>G</span>
-                    <span>N</span>
-                    <span>E</span>
-                    <span>R</span>
+                    <em>DESIGNER</em>
                 </div>
 
                 <div class="title-area">
-                    <h3>
-                        <span>U</span>
-                        <span>R</span>
-                        <span>B</span>
-                        <span>A</span>
-                        <span>N</span>
-                        <span>—</span>
-                        <span>A</span>
-                        <span>R</span>
-                        <span>T</span>
-                    </h3>
+                    <h1>URBAN—ART</h1>
                 </div>
 
                 <div class="desc-area">
@@ -95,61 +79,116 @@
             </div>
 
             <div class="group-slide">
-                <div class="sticky-wrap">
-                    <div class="sticky">
-                        <div class="content-wrap">
-                            <div class="content area1">
-                                <div class="img-area">
-                                    <img src="./assets/images/intro-bg.jpg" alt>
-                                </div>
-
-                                <div class="wander-img">
-                                    <figure>
-                                        <img src="./assets/images/intro-wander.jpg" alt>
-                                        <figcaption>
-                                            WE CREATE AN INTERIOR DESIGN<br>
-                                            THAT IS ON TREND</figcaption>
-                                    </figure>
-                                </div>
-
-                                <div class="text-area">
-                                    <div class="text">
-                                        <div class="text-area-img">
-                                            <img src="./assets/images/intro-text.jpg" alt>
-                                        </div>
-
-                                        <strong>ALWAYS</strong>
-
-                                        <div class="text-area-img">
-                                            <img src="./assets/images/intro-text2.jpg" alt>
-                                        </div>
-                                    </div>
-                                    <div class="text-area-bg"></div>
-                                </div>
+                <div class="sticky">
+                    <div class="content-wrap">
+                        <div class="content area1">
+                            <div class="img-area">
+                                <img src="./assets/images/intro-bg.jpg" alt>
                             </div>
 
-                            <div class="content area2">
-                                <div class="gallery-area">
-                                    <div class="gallery-bg">
-                                        <img src="./assets/images/gallery-bg.jpg" alt>
+                            <div class="wander-img">
+                                <figure>
+                                    <img src="./assets/images/intro-wander.jpg" alt>
+                                    <figcaption>
+                                        WE CREATE AN INTERIOR DESIGN<br>
+                                        THAT IS ON TREND</figcaption>
+                                </figure>
+                            </div>
+
+                            <div class="text-area">
+                                <div class="text">
+                                    <div class="text-area-img">
+                                        <img src="./assets/images/intro-text.jpg" alt>
                                     </div>
-                                    <div class="img-list">
-                                        <div class="img-item item1" data-effect="x-move">
-                                            <img src="./assets/images/gallery1.jpg" alt>
-                                        </div>
 
-                                        <div class="img-item item2" data-effect="x-move">
-                                            <img src="./assets/images/gallery2.jpg" alt>
-                                        </div>
+                                    <strong>ALWAYS</strong>
 
-                                        <div class="img-item item3" data-effect="x-move">
-                                            <img src="./assets/images/gallery3.jpg" alt>
-                                        </div>
+                                    <div class="text-area-img">
+                                        <img src="./assets/images/intro-text2.jpg" alt>
+                                    </div>
+                                </div>
+                                <div class="text-area-bg"></div>
+                            </div>
 
-                                        <div class="img-item item4" data-effect="x-move">
-                                            <img src="./assets/images/gallery4.jpg" alt>
-                                        </div>
+                        </div>
 
+                        <div class="content area2">
+                            <div class="gallery-area">
+                                <div class="gallery-bg">
+                                    <img src="./assets/images/gallery-bg.jpg" alt>
+
+                                    <div class="text-list">
+                                        <h3>
+                                            <em>IT'S ALL</em>
+                                            ABOUT <br>
+                                            THE DETAILS
+                                        </h3>
+
+                                        <ul class="list">
+                                            <li>CEILING MOLDINGS</li>
+                                            <li>CORNICES</li>
+                                            <li>CARPETS</li>
+                                            <li>LACONIC HANDLES</li>
+                                            <li>DECORATIVE MIRRORS</li>
+                                            <li>PHOTO FRAMES</li>
+                                            <li>CANDLE STANDS</li>
+                                            <li>BOOKSHELVES</li>
+                                            <li>DRAPING CURTAINS</li>
+                                            <li>TEXTILE PILLOWCASES</li>
+                                            <li>ANTIQUE JEWELRY</li>
+                                            <li>DECORATIVE CLOCK</li>
+                                            <li>ENAMELED VASES</li>
+                                            <li>PAINTINGS</li>
+                                            <li>METAL PARTS</li>
+                                            <li>MARBLE COUNTERTOPS</li>
+                                            <li>CHANDELIERS</li>
+                                            <li>HANGING GIRLS</li>
+                                            <li>PANORAMIC PHOTOS</li>
+                                            <li>CLOTHES HANGERS</li>
+                                            <li>VELOR BEDSPREADS</li>
+                                            <li>TAPESTRIES</li>
+                                            <li>CRYSTAL FIGURES</li>
+                                            <li>CORNICES</li>
+                                            <li>LAMPS</li>
+                                            <li>CERAMIC SCULPTURES</li>
+                                            <li>APP DESIGN</li>
+                                            <li>DESIGN SYSTEM</li>
+                                            <li>MODULAR SHELVES</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="img-list">
+                                    <div class="img-item item1">
+                                        <img src="./assets/images/gallery1.jpg" alt>
+                                    </div>
+
+                                    <div class="img-item item2">
+                                        <img src="./assets/images/gallery2.jpg" alt>
+                                    </div>
+
+                                    <div class="img-item item3">
+                                        <img src="./assets/images/gallery3.jpg" alt>
+                                    </div>
+
+                                    <div class="img-item item4">
+                                        <img src="./assets/images/gallery4.jpg" alt>
+                                    </div>
+
+                                    <div class="img-item item5">
+                                        <img src="./assets/images/gallery5.png" alt>
+                                    </div>
+
+                                    <div class="img-item item6">
+                                        <img src="./assets/images/gallery6.png" alt>
+                                    </div>
+
+                                    <div class="img-item item7">
+                                        <img src="./assets/images/gallery7.jpg" alt>
+                                    </div>
+
+                                    <div class="img-item item8">
+                                        <img src="./assets/images/gallery8.jpg" alt>
                                     </div>
                                 </div>
                             </div>
@@ -157,90 +196,39 @@
                     </div>
                 </div>
             </div>
-            <div class="group-gallery">
-                <div class="gallery-area">
-                    <div class="col-left">
-                        <div class="sticky">
-                            <div class="gallery-bg" data-effect="fade">
-                                <img src="./assets/images/gallery-bg.jpg" alt>
-                            </div>
-                        </div>
 
-                        <ul class="text-list">
-                            <li>
-                                <h3>
-                                    <em>IT'S ALL</em>
-                                    ABOUT <br>
-                                    THE DETAILS
-                                </h3>
-                            </li>
-                            <li>CEILING MOLDINGS</li>
-                            <li>CORNICES</li>
-                            <li>CARPETS</li>
-                            <li>LACONIC HANDLES</li>
-                            <li>DECORATIVE MIRRORS</li>
-                            <li>PHOTO FRAMES</li>
-                            <li>CANDLE STANDS</li>
-                            <li>BOOKSHELVES</li>
-                            <li>DRAPING CURTAINS</li>
-                            <li>TEXTILE PILLOWCASES</li>
-                            <li>ANTIQUE JEWELRY</li>
-                            <li>DECORATIVE CLOCK</li>
-                            <li>ENAMELED VASES</li>
-                            <li>PAINTINGS</li>
-                            <li>METAL PARTS</li>
-                            <li>MARBLE COUNTERTOPS</li>
-                            <li>CHANDELIERS</li>
-                            <li>HANGING GIRLS</li>
-                            <li>PANORAMIC PHOTOS</li>
-                            <li>CLOTHES HANGERS</li>
-                            <li>VELOR BEDSPREADS</li>
-                            <li>TAPESTRIES</li>
-                            <li>CRYSTAL FIGURES</li>
-                            <li>CORNICES</li>
-                            <li>LAMPS</li>
-                            <li>CERAMIC SCULPTURES</li>
-                            <li>APP DESIGN</li>
-                            <li>DESIGN SYSTEM</li>
-                            <li>MODULAR SHELVES</li>
-                        </ul>
+            <div class="gallery-area display-m">
+                <div class="img-list">
+                    <div class="img-item item1">
+                        <img src="./assets/images/gallery1.jpg" alt>
                     </div>
 
-                    <div class="col-right" data-effect="fade">
-                        <div class="img-list">
-                            <div class="img-item item1">
-                                <img src="./assets/images/gallery1.jpg" alt>
-                            </div>
+                    <div class="img-item item2">
+                        <img src="./assets/images/gallery2.jpg" alt>
+                    </div>
 
-                            <div class="img-item item2">
-                                <img src="./assets/images/gallery2.jpg" alt>
-                            </div>
+                    <div class="img-item item3">
+                        <img src="./assets/images/gallery3.jpg" alt>
+                    </div>
 
-                            <div class="img-item item3">
-                                <img src="./assets/images/gallery3.jpg" alt>
-                            </div>
+                    <div class="img-item item4">
+                        <img src="./assets/images/gallery4.jpg" alt>
+                    </div>
 
-                            <div class="img-item item4">
-                                <img src="./assets/images/gallery4.jpg" alt>
-                            </div>
+                    <div class="img-item item5">
+                        <img src="./assets/images/gallery5.png" alt>
+                    </div>
 
-                            <div class="img-item item5">
-                                <img src="./assets/images/gallery5.png" alt>
-                            </div>
+                    <div class="img-item item6">
+                        <img src="./assets/images/gallery6.png" alt>
+                    </div>
 
-                            <div class="img-item item6">
-                                <img src="./assets/images/gallery6.png" alt>
-                            </div>
+                    <div class="img-item item7">
+                        <img src="./assets/images/gallery7.jpg" alt>
+                    </div>
 
-                            <div class="img-item item7">
-                                <img src="./assets/images/gallery7.jpg" alt>
-                            </div>
-
-                            <div class="img-item item8">
-                                <img src="./assets/images/gallery8.jpg" alt>
-                            </div>
-
-                        </div>
+                    <div class="img-item item8">
+                        <img src="./assets/images/gallery8.jpg" alt>
                     </div>
                 </div>
             </div>
@@ -248,6 +236,7 @@
 
         <section class="sc-order" id="sc2">
             <h2 class="blind">연락 및 주문</h2>
+            <img src="./assets/images/order-bg.jpg" alt class="bg">
             <div class="inner">
                 <div class="group-call">
                     <div class="title-area">
@@ -680,40 +669,59 @@
                 <div class="sticky">
                     <div class="info-area area1">
                         <div class="desc-area">
-                            <div class="text-box3">
+                            <div class="text-box1">
                                 <span class="font-small">FOR BODY</span>
                                 <strong class="font-medium">HARMONY OF <br> TEXTURES</strong>
                             </div>
-                            <div class="text-box2">
-                                <span class="font-small">FOR HEART</span>
-                                <strong class="font-medium">COLORFUL <br> COMBINATIONS</strong>
-                            </div>
-                            <div class="text-box1">
-                                <span class="font-small">FOR THE SOUL</span>
-                                <strong class="font-medium">INTRIGUING <br> DETAILS</strong>
-                            </div>
                         </div>
-
                         <div class="img-area">
-                            <div class="img-box3">
-                                <img src="./assets/images/interior-list3.jpg" alt>
-                            </div>
-                            <div class="img-box2">
-                                <img src="./assets/images/interior-list2.jpg" alt>
-                            </div>
+
                             <div class="img-box1">
                                 <img src="./assets/images/interior-list1.jpg" alt>
                             </div>
                         </div>
                     </div>
+
+                    <div class="info-area area2">
+                        <div class="desc-area">
+                            <div class="text-box2">
+                                <span class="font-small">FOR HEART</span>
+                                <strong class="font-medium">COLORFUL <br> COMBINATIONS</strong>
+                            </div>
+                        </div>
+                        <div class="img-area">
+                            <div class="img-box2">
+                                <img src="./assets/images/interior-list2.jpg" alt>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-area area3">
+                        <div class="desc-area">
+                            <div class="text-box3">
+                                <span class="font-small">FOR THE SOUL</span>
+                                <strong class="font-medium">INTRIGUING <br> DETAILS</strong>
+                            </div>
+                        </div>
+                        <div class="img-area">
+                            <div class="img-box3">
+                                <img src="./assets/images/interior-list3.jpg" alt>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="bg-area">
-                    <img src="./assets/images/order-interior-bg1.jpg" alt>
-
-                    <img src="./assets/images/order-interior-bg2.jpg" alt>
-
-                    <img src="./assets/images/order-interior-bg3.jpg" alt>
+                    <div class="content cont1">
+                        <img src="./assets/images/order-interior-bg1.jpg" alt>
+                    </div>
+                    <div class="content cont2">
+                        <img src="./assets/images/order-interior-bg2.jpg" alt>
+                    </div>
+                    <div class="content cont3">
+                        <img src="./assets/images/order-interior-bg3.jpg" alt>
+                    </div>
                 </div>
             </div>
         </section>

@@ -295,7 +295,7 @@
 
 @media (max-width:580px) {
     #header .gnb.active {
-        width: 150px;
+        width: 200px;
     }
 
     #header .gnb .gnb-list {
