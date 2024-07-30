@@ -316,6 +316,7 @@ $(document).click(function (e) {
       ".interior-side .group-side, .sc-interior .group-interior .interior-box .interior-item"
     ).has(e.target).length
   ) {
+    lenis.start();
     $(".interior-side .group-side").removeClass("active");
     setTimeout(() => {
       $(".interior-side").removeClass("active");
@@ -327,24 +328,25 @@ $(document).click(function (e) {
 
 $(".sc-interior .group-interior .interior-item").click(function () {
   const room = $(this).data("room");
-
-  if (room == "bed-room") {
-    $(`[data-room="bed-room"]`).css("display", "block");
-  } else if (room == "scand-room") {
-    $(`[data-room="scand-room"]`).css("display", "block");
-  } else {
-    $(`[data-room="eco-room"]`).css("display", "block");
-  }
-
-  $(".interior-side").toggleClass("active");
-  $("body").toggleClass("active");
-
+  lenis.stop();
+  
+  $(".wrapper").css("display", "none");
+  
+  const targetElement = $(`.wrapper[data-room="${room}"]`);
+  targetElement.css("display", "block");
+  
+  $(".interior-side").addClass("active");
+  $("body").addClass("active");
+  
+  $('.interior-side').scrollTop(0);
+  
   setTimeout(() => {
-    $(".interior-side .group-side").toggleClass("active");
+    $(".group-side").addClass("active");
   }, 300);
 });
 
 $(".interior-side .side-close").click(function () {
+  lenis.start();
   $(".interior-side .group-side").removeClass("active");
   setTimeout(() => {
     $(".interior-side").removeClass("active");
